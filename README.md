@@ -84,6 +84,56 @@ package.json
 }
 
 ```
+.babelrc 
+webpack使用:
+```angular2html
+const path = require('path')
+model.exports = {
+  entry: path.join(__dirname,'src/index.js'), //入口文件
+  output: {   //输出
+    filename:'bundle.js', //输出文件名称
+    path:path.join(__dirname,'dist')
+  },
+  module: {   //帮助处理elcsit5 无法处理的文件
+   rules: [  
+       {
+          test:/\.vue$/,  //检查文件类型
+          loader: 'vue-loader'
+       },
+       {
+          test:/\.css$/,  //css 处理
+          use: [
+              'style-loader',
+              'css_loader'
+          ]
+       },
+       {
+          test: /\.styl/,  //css 预处理
+          use: [
+              'style-loader',
+              'css-loader',  //处理css 
+              'stylus-loader' // 处理stylus
+          ]
+       },
+       {
+          test:/\.(gif|jpg|jpeg|png|svg)/,
+          use: [
+            {
+               loader: 'url-loader' //loader 配置选项 url_loader可以将图片转换为base64代码直接写入到js里面 而不用生成一个新的文件
+               options: {
+                  limit:1024，
+                  name: '[name]-aaa.[exit]'  //指定webpack 生成的名字
+               } 
+            }
+          ]
+          
+       }
+   ]
+  }
+}
 
+```
+
+1 cross-env 统一设置不同平台的环境变量 
 
 

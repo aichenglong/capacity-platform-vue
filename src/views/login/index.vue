@@ -57,7 +57,6 @@ export default {
       }
     }
     const validatePass = (rule, value, callback) => {
-      console.log(value)
       if (value.length < 5) {
         callback(new Error('密码不能小于5位'))
       } else {
@@ -83,7 +82,7 @@ export default {
         if (valid) {
           this.loading = true
           console.info(this.$store)
-          this.$store.dispatch('login', this.loginForm).then(() => {
+          this.$store.dispatch('Login', this.loginForm).then(() => {
             this.loading = false
             this.$router.push({path: '/'})
           }).catch(() => {

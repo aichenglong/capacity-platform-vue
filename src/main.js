@@ -8,11 +8,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import locale from 'element-ui/lib/locale/lang/en'
 import store from './store'
+import Icon from 'vue-svg-icon/Icon.vue'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, { locale })
 Vue.use(router)
 Vue.use(Router)
+Vue.component('icon', Icon)
 
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') {

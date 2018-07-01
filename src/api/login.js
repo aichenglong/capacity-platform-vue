@@ -2,8 +2,8 @@ import httpUtil from '@/utils/httpUtil'
 
 export function login (userName, password) {
   return httpUtil({
-    url: '/user/login' + '?username' + userName,
-    method: 'post'
+    url: '/login' + '?userName=' + userName,
+    method: 'get'
   })
 }
 

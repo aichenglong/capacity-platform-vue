@@ -84,7 +84,9 @@ export default {
           console.info(this.$store)
           this.$store.dispatch('Login', this.loginForm).then(() => {
             this.loading = false
+            console.info('test')
             this.$router.push({path: '/'})
+            console.info('test111')
           }).catch(() => {
             this.loading = false
           })

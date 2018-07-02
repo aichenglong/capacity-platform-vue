@@ -9,7 +9,7 @@ const service = axios.create({
 })
 // request 拦截请求
 service.interceptors.request.use(config => {
-  console.info("axios:" +  process.env.BASE_API)
+  console.info('axios:' + process.env.BASE_API)
   if (store.getters.token) {
     config.headers['X-Token'] = getToken()
   }
@@ -20,10 +20,11 @@ service.interceptors.request.use(config => {
 })
 // response 拦截器
 service.interceptors.response.use(response => {
+  console.info('response:' + JSON.stringify(response))
   const res = response.data
   if (res.code !== 200) {
     Message({
-      message: res.data,
+      message: res.message,
       type: 'error',
       duration: 5 * 1000
     })

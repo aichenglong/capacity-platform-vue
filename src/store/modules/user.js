@@ -28,6 +28,7 @@ const user = {
       return new Promise((resolve, reject) => {
         login(userName, userInfo.password).then(response => {
           const data = response.data
+          console.info(JSON.stringify(data))
           setToken(data.token)
           commit('SET_TOKEN', data)
           resolve()
@@ -38,7 +39,7 @@ const user = {
     },
 
     // 获取用户信息
-    GetInfo ({ commit, state}) {
+    GetInfo ({ commit, state }) {
       return new Promise((resolve, reject) => {
 
       })

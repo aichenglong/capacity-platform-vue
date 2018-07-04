@@ -20,7 +20,22 @@ export const constantRouterMap = [
     }]
   }
 ]
-
+export const asyncRouterMap = [
+  {
+    path: '/icon',
+    component: Layout,
+    name: '图标',
+    meta: { roles: ['admin'] },
+    children: [
+      {
+        path: 'index',
+        name: '图标',
+        meta: { title: '图标', icon: 'form', roles: ['admin'] }
+      }
+    ]
+  },
+  { path: '*', redirect: '/404', hidden: true }
+]
 export default new Router({
   // mode: 'history', //后端支持可开
   routes: constantRouterMap
